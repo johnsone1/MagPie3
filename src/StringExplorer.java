@@ -19,6 +19,9 @@ public class StringExplorer
 		String lowerCase = sample.toLowerCase();
 		System.out.println ("sample.toLowerCase() = " + lowerCase);
 		System.out.println ("After toLowerCase(), sample = " + sample);
+
+        int notFoundPsn = sample.indexOf("Slow");
+        System.out.println("sample.indexOf(\"slow\") = " + notFoundPsn);
 		
 		//  Try other methods here:
 
