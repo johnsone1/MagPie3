@@ -27,30 +27,41 @@ public class Magpie3
 	 *            the user statement
 	 * @return a response based on the rules given
 	 */
-	public String getResponse(String statement)
-	{
-		String response = "";
-		if (statement.length() == 0)
-		{
-			response = "Say something, please.";
-		}
-		else if (findKeyword(statement, "no") >= 0)
-		{
-			response = "Why so negative?";
-		}
-		else if (findKeyword(statement, "mother") >= 0
-				|| findKeyword(statement, "father") >= 0
-				|| findKeyword(statement, "sister") >= 0
-				|| findKeyword(statement, "brother") >= 0)
-		{
-			response = "Tell me more about your family.";
-		}
-		else
-		{
-			response = getRandomResponse();
-		}
-		return response;
-	}
+	public String getResponse(String statement) {
+        String response = "";
+        if (statement.length() == 0) {
+            response = "Say something, please.";
+        } else if (findKeyword(statement, "no") >= 0) {
+            response = "Why so negative?";
+        } else if (findKeyword(statement, "mother") >= 0
+                || findKeyword(statement, "father") >= 0
+                || findKeyword(statement, "sister") >= 0
+                || findKeyword(statement, "brother") >= 0) {
+            response = "Tell me more about your family.";
+        } else if (findKeyword(statement, "Mr. Tanczos") >= 0) {
+            response = "He sounds like a forking good teacher!";
+        } else if (statement.trim().length() == 0) {
+            response = "Why don't you say something instead of spamming the enter key. That's right, I know what your doing!";
+        } else if (findKeyword(statement, "weather") >= 0) {
+            response = "I love today's weather!";
+        } else if (findKeyword(statement, "game") >= 0) {
+            response = "I also love to game, whether it's sports or video.";
+        } else if (findKeyword(statement, "salad") >= 0) {
+            response = "Why would you want salad?!";
+        } else if (findKeyword(statement, "dog") >= 0
+                || findKeyword(statement, "cat") >= 0
+                || findKeyword(statement, "fish") >= 0) {
+            response = "Tell me more about your pets.";
+
+        }
+        else
+        {
+            response = getRandomResponse();
+        }
+
+
+        return response;
+    }
 
 	/**
 	 * Search for one word in phrase. The search is not case
@@ -165,6 +176,14 @@ public class Magpie3
 		{
 			response = "You don't say.";
 		}
+        else if (whichResponse == 4)
+        {
+            response = "What are you even saying?";
+        }
+        else if (whichResponse == 5)
+        {
+            response = "? ? ? ?";
+        }
 
 		return response;
 	}
